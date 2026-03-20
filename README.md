@@ -38,6 +38,8 @@ Notable per-label results:
 | grief | 0.36 | 10 |
 | relief | 0.34 | 18 |
 
+![F1-score per Label](assets/roberta_f1_chart.png)
+
 > Low F1 on labels like `grief` (10 samples) and `relief` (18 samples) is expected due to severe class imbalance.
 
 ## Installation
