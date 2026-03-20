@@ -20,15 +20,6 @@ This project fine-tunes `roberta-base` to detect multiple emotions simultaneousl
 
 ## Training
 
-### Requirements
-Download the GoEmotions dataset and place it in the `go_emotions/` directory:
-```
-go_emotions/
-├── train.tsv
-├── dev.tsv
-└── test.tsv
-```
-
 ### Configuration
 Key hyperparameters defined in `config` at the top of the notebook:
 
