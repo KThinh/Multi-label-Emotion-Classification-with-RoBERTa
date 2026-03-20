@@ -28,18 +28,6 @@ Evaluated on the GoEmotions test set:
 | Micro F1 | 0.58 |
 | Weighted F1 | 0.59 |
 
-Notable per-label results:
-
-| Label | F1 | Support |
-|-------|----|---------|
-| gratitude | 0.90 | 337 |
-| amusement | 0.81 | 289 |
-| remorse | 0.73 | 67 |
-| grief | 0.36 | 10 |
-| relief | 0.34 | 18 |
-
-> Low F1 on labels like `grief` (10 samples) and `relief` (18 samples) is expected due to severe class imbalance.
-
 ## Installation
 ```bash
 git clone https://github.com/<your-username>/<repo-name>.git
