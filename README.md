@@ -18,6 +18,58 @@ This project fine-tunes `roberta-base` to detect multiple emotions simultaneousl
 - **Tokenizer:** Extended with special tokens `[NAME]`, `[RELIGION]` for Reddit-specific text
 - **Experiment Tracking:** Weights & Biases (WandB)
 
+## Training
+
+### Requirements
+Download the GoEmotions dataset and place it in the `go_emotions/` directory:
+```
+go_emotions/
+├── train.tsv
+├── dev.tsv
+└── test.tsv
+```
+
+### Configuration
+Key hyperparameters defined in `config` at the top of the notebook:
+
+| Parameter | Value |
+|-----------|-------|
+| Model | `roberta-base` |
+| Max sequence length | 128 |
+| Batch size | 16 |
+| Epochs | 6 |
+| Learning rate | 2e-5 |
+| Weight decay | 0.01 |
+| Focal Loss α | 1 |
+| Focal Loss γ | 2 |
+
+### Steps
+
+**1. Preprocess**
+Text cleaning applied to all splits:
+- Emoji converted to text via `emoji.demojize()`
+- URLs removed
+
+**2. Tokenize & Split**
+- Tokenizer extended with special tokens `[NAME]`, `[RELIGION]`
+- Stratified split using `MultilabelStratifiedShuffleSplit` to preserve label distribution
+
+**3. Train**
+```bash
+# Open and run all cells in order
+jupyter notebook fine-tune_RoBERTa-base.ipynb
+```
+- Training monitored via WandB — login required:
+```bash
+wandb login
+```
+
+**4. Threshold Optimization**
+After training, per-label thresholds are tuned on the validation set to maximize F1 per label, replacing the default fixed threshold of 0.5.
+
+**5. Evaluate**
+Final evaluation on the test set with dynamic thresholds, outputting full classification report and F1 chart per label.
+
 ## Results
 
 Evaluated on the GoEmotions test set:
