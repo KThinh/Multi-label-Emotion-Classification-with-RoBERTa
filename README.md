@@ -27,35 +27,3 @@ Evaluated on the GoEmotions test set:
 | Macro F1 | 0.53 |
 | Micro F1 | 0.58 |
 | Weighted F1 | 0.59 |
-
-## Installation
-```bash
-git clone https://github.com/<your-username>/<repo-name>.git
-cd <repo-name>
-pip install -r requirements.txt
-```
-
-## Requirements
-```
-torch
-transformers
-scikit-learn
-pandas
-numpy
-wandb
-emoji
-iterative-stratification
-```
-
-## Usage
-```bash
-# Train
-jupyter notebook fine-tune_RoBERTa-base.ipynb
-```
-
-## Project Structure
-```
-├── fine-tune_RoBERTa-base.ipynb   # Training & evaluation notebook
-├── requirements.txt
-└── README.md
-```
