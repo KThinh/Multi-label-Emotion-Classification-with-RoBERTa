@@ -46,14 +46,10 @@ Text cleaning applied to all splits:
 - Stratified split using `MultilabelStratifiedShuffleSplit` to preserve label distribution
 
 **3. Train**
-```bash
-# Open and run all cells in order
-jupyter notebook fine-tune_RoBERTa-base.ipynb
-```
-- Training monitored via WandB — login required:
-```bash
-wandb login
-```
+- Fine-tune `roberta-base` using Hugging Face `Trainer` API with `TrainingArguments`
+- Focal Loss replaces standard BCE to down-weight easy negatives and focus on hard samples
+- Early stopping applied to prevent overfitting
+- Training progress tracked via WandB
 
 **4. Threshold Optimization**
 After training, per-label thresholds are tuned on the validation set to maximize F1 per label, replacing the default fixed threshold of 0.5.
