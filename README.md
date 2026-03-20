@@ -21,9 +21,9 @@ This project fine-tunes `roberta-base` to detect multiple emotions simultaneousl
 ## Results
 
 Evaluated on the GoEmotions test set:
-![F1-score per Label](assets/roberta_f1_chart.png)
 | Metric | Score |
 |--------|-------|
 | Macro F1 | 0.53 |
 | Micro F1 | 0.58 |
 | Weighted F1 | 0.59 |
+![F1-score per Label](assets/roberta_f1_chart.png)
