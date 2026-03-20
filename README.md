@@ -45,7 +45,7 @@ Text cleaning applied to all splits:
 - Tokenizer extended with special tokens `[NAME]`, `[RELIGION]`
 - Stratified split using `MultilabelStratifiedShuffleSplit` to preserve label distribution
 
-**3. Train**
+**3. Fine-tune model RoBERTa**
 - Fine-tune `roberta-base` using Hugging Face `Trainer` API with `TrainingArguments`
 - Focal Loss replaces standard BCE to down-weight easy negatives and focus on hard samples
 - Early stopping applied to prevent overfitting
